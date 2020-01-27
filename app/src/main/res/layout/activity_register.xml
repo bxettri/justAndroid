@@ -61,84 +61,76 @@
         android:hint="Password"
         android:inputType="textPassword" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="285dp"
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etPassword"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="157dp"
-        android:layout_marginLeft="157dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="159dp"
-        android:layout_marginRight="159dp"
-        android:background="@drawable/button_background"
-        android:textColor="@android:color/white"
-        android:text="Login" />
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginRight="97dp"
+        android:ems="10"
+        android:hint="First name"
+        android:inputType="textPersonName" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <EditText
+        android:id="@+id/editText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button"
+        android:layout_below="@+id/editText"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="66dp"
-        android:layout_marginLeft="66dp"
-        android:layout_marginTop="53dp"
-        android:text="If you are new please"
-        android:textSize="18sp" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="294dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginRight="55dp"
-        android:layout_toEndOf="@+id/textView2"
-        android:layout_toRightOf="@+id/textView2"
-        android:background="@drawable/button_background"
-        android:textColor="@android:color/white"
-        android:text="Register" />
+        android:layout_marginStart="99dp"
+        android:layout_marginLeft="99dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginRight="98dp"
+        android:ems="10"
+        android:hint="Last name"
+        android:inputType="textPersonName" />
 
-    <TextView
-        android:id="@+id/textView"
+    <EditText
+        android:id="@+id/editText3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/editText2"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="59dp"
-        android:text="If you are doctor please"
-        android:textSize="18sp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="109dp"
-        android:layout_height="44dp"
-        android:layout_below="@+id/button5"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="7dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginRight="41dp"
-        android:layout_toEndOf="@+id/textView"
-        android:layout_toRightOf="@+id/textView"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginRight="97dp"
+        android:ems="10"
+        android:hint="Address"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="121dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="139dp"
+        android:layout_marginLeft="139dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="151dp"
+        android:layout_marginRight="151dp"
         android:background="@drawable/button_background"
         android:textColor="@android:color/white"
-        android:text="Click here!" />
+        android:text="Complete" />
 
 </RelativeLayout>

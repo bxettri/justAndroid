@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background"
+    android:background="@drawable/background2"
     tools:context=".loginActivity">
 
 
@@ -23,7 +23,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="142dp"
         android:layout_marginRight="142dp"
-        app:srcCompat="@drawable/patient" />
+        app:srcCompat="@drawable/doc" />
 
     <EditText
         android:id="@+id/etUsername"
@@ -75,8 +75,6 @@
         android:layout_marginTop="25dp"
         android:layout_marginEnd="159dp"
         android:layout_marginRight="159dp"
-        android:background="@drawable/button_background"
-        android:textColor="@android:color/white"
         android:text="Login" />
 
     <TextView
@@ -106,8 +104,6 @@
         android:layout_marginRight="55dp"
         android:layout_toEndOf="@+id/textView2"
         android:layout_toRightOf="@+id/textView2"
-        android:background="@drawable/button_background"
-        android:textColor="@android:color/white"
         android:text="Register" />
 
     <TextView
@@ -120,7 +116,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginLeft="64dp"
         android:layout_marginTop="59dp"
-        android:text="If you are doctor please"
+        android:text="If you are please please"
         android:textSize="18sp" />
 
     <Button
@@ -137,8 +133,6 @@
         android:layout_marginRight="41dp"
         android:layout_toEndOf="@+id/textView"
         android:layout_toRightOf="@+id/textView"
-        android:background="@drawable/button_background"
-        android:textColor="@android:color/white"
         android:text="Click here!" />
 
 </RelativeLayout>

@@ -1,6 +1,6 @@
 package com.example.doctorappointmentsystem.model;
 
-public class patient {
+public class patients {
     private String username;
 
 
@@ -11,7 +11,7 @@ public class patient {
     private String address;
 
 
-    public patient(String username, String password, String address, String firstname, String lastname)
+    public patients(String username, String password, String address, String firstname, String lastname)
         {
            this.username = username;
            this.firstname= firstname;
@@ -20,7 +20,7 @@ public class patient {
            this.address=address;
 
          }
-    public patient(String username, String password){
+    public patients(String username, String password){
 
         this.username= username;
         this.password=password;

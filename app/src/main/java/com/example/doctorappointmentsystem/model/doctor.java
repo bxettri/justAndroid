@@ -1,23 +1,23 @@
 package com.example.doctorappointmentsystem.model;
 
-public class doctor{
+public class doctor {
     private String username;
-
-
-
     private String password;
     private String firstname;
     private String lastname;
     private String address;
+    private String email;
+    private String profileImage;
 
-
-    public doctor(String username, String password, String address, String firstname, String lastname)
+    public doctor(String username, String email,String password, String firstname, String lastname, String address, String profileImage)
     {
+        this.email=email;
         this.username = username;
         this.firstname= firstname;
         this.password=password;
         this.lastname=lastname;
         this.address=address;
+        this.profileImage = profileImage;
 
     }
     public doctor(String username, String password){
@@ -25,6 +25,9 @@ public class doctor{
         this.username= username;
         this.password=password;
     }
+
+
+
 
     public String getUsername() {return username; }
 
@@ -62,5 +65,20 @@ public class doctor{
 
     public void setAddress(String address) {
         this.address = address;
+    }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
     }
 }

@@ -2,18 +2,30 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.doctorappointmentsystem">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".DocRegisterActivity"></activity>
-        <activity android:name=".DocLoginActivity" />
-        <activity android:name=".registerActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".loginActivity">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".activity.docMainActivity"></activity>
+        <activity android:name=".activity.BookingActivity" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.DocRegisterActivity" />
+        <activity android:name=".activity.DocLoginActivity" />
+        <activity android:name=".activity.registerActivity" />
+        <activity android:name=".activity.dashboardActivity" />
+        <activity
+            android:name=".activity.loginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

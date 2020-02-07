@@ -6,55 +6,64 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/background"
-    tools:context=".loginActivity">
+    tools:context=".activity.registerActivity">
 
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="136dp"
-        android:layout_height="112dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="133dp"
-        android:layout_marginLeft="133dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="142dp"
-        android:layout_marginRight="142dp"
-        app:srcCompat="@drawable/patient" />
+    <TextView
+        android:id="@+id/tvRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textSize="40dp"
+        android:textAlignment="center"
+        android:layout_margin="30dp"/>
 
     <EditText
         android:id="@+id/username"
+        android:layout_below="@+id/tvRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginStart="98dp"
         android:layout_marginLeft="98dp"
-        android:layout_marginTop="30dp"
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="Username"
         android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/email"
+        android:layout_below="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="98dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:ems="10"
+        android:hint="email"
+        android:inputType="textPersonName" />
+
 
     <EditText
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/username"
+        android:layout_below="@+id/email"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginStart="99dp"
         android:layout_marginLeft="99dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="99dp"
         android:layout_marginRight="99dp"
         android:ems="10"
@@ -116,21 +125,38 @@
         android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/signup"
-        android:layout_width="121dp"
+        android:id="@+id/btnSelectPic"
+        android:layout_width="191dp"
         android:layout_height="wrap_content"
+        android:text="Choose pic . . . "
+        android:textAllCaps="false"
         android:layout_below="@+id/address"
+        android:layout_marginLeft="100dp"
+        android:padding="10dp"
+        android:textAlignment="viewStart"
+        android:layout_gravity="start" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="136dp"
+        android:layout_height="112dp"
+        android:layout_below="@+id/btnSelectPic"
+        app:srcCompat="@drawable/patient"
+        android:layout_marginLeft="100dp"/>
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="139dp"
-        android:layout_marginLeft="139dp"
-        android:layout_marginTop="47dp"
-        android:layout_marginEnd="151dp"
-        android:layout_marginRight="151dp"
+        android:layout_margin="30dp"
         android:background="@drawable/button_background"
-        android:textColor="@android:color/white"
-        android:text="Complete" />
+        android:text="Complete"
+        android:textColor="@android:color/white" />
+
 
 </RelativeLayout>

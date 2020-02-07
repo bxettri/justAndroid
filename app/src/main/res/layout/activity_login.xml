@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/background"
-    tools:context=".loginActivity">
+    tools:context=".activity.loginActivity">
 
 
     <ImageView
@@ -40,7 +40,7 @@
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="username"
         android:inputType="textPersonName" />
 
     <EditText
@@ -93,7 +93,7 @@
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btnRegister"
         android:layout_width="294dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnLogin"
@@ -124,10 +124,10 @@
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnDoctor"
         android:layout_width="109dp"
         android:layout_height="44dp"
-        android:layout_below="@+id/button5"
+        android:layout_below="@+id/btnRegister"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginStart="7dp"

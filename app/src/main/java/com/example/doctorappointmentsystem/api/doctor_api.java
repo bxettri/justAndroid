@@ -28,7 +28,7 @@ public interface doctor_api {
     Call<patientResponse> signup(@Body patients user);
 
     @POST("doctor/signup")
-    Call<doctorResponse> signup(@Body doctor doc);
+    Call<doctorResponse> doctorSignup(@Body doctor doc);
 
     @POST ("doctor/login")
     Call<doctorResponse> login(@Body doctor doc);

@@ -139,7 +139,7 @@ public class DocRegisterActivity extends AppCompatActivity {
         System.out.println("The Image Name is: " +imageName);
         doctor doctorSignup = new doctor(username.getText().toString(), email.getText().toString(), password.getText().toString(), firstName.getText().toString(), lastName.getText().toString(), address.getText().toString(), imageName);
         doctor_api registerApi = url.getInstance().create(doctor_api.class);
-        Call<doctorResponse> registerCall = registerApi.signup(doctorSignup);
+        Call<doctorResponse> registerCall = registerApi.doctorSignup(doctorSignup);
 
         registerCall.enqueue(new Callback<doctorResponse>() {
             @Override

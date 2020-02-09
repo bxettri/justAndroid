@@ -63,9 +63,7 @@ public class DocLoginActivity extends AppCompatActivity implements View.OnClickL
             loginCall.enqueue(new Callback<doctorResponse>() {
                 @Override
                 public void onResponse(Call<doctorResponse> call, Response<doctorResponse> response) {
-                    System.out.println("The Error is:"+response);
-                    System.out.println("The body is :" + response.body().getToken());
-                    if(!response.isSuccessful()){
+                  if(!response.isSuccessful()){
                         Toast.makeText(DocLoginActivity.this, "Login Error", Toast.LENGTH_SHORT).show();
                         return;
                     }

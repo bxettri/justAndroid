@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +25,7 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
 
     Button btnLogin, btnRegister, btnDoctor;
     EditText username, password;
+    Vibrator vibrator;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,7 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
         password=findViewById(R.id.password);
         btnRegister=findViewById(R.id.btnRegister);
         btnDoctor = findViewById(R.id.btnDoctor);
+        vibrator=(Vibrator)getSystemService(VIBRATOR_SERVICE);
 
         btnDoctor.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
@@ -69,7 +72,8 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
                 public void onResponse(Call<patientResponse> call, Response<patientResponse> response) {
 
                     if(!response.isSuccessful()){
-                        Toast.makeText(loginActivity.this, "Login Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(loginActivity.this, "Username and password didn't match", Toast.LENGTH_SHORT).show();
+                        vibrator.vibrate(50);
                         return;
                     }
 

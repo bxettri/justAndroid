@@ -93,7 +93,7 @@ public class DocLoginActivity extends AppCompatActivity implements View.OnClickL
     }
 
     public void openRegister(){
-        Intent intent = new Intent(DocLoginActivity.this, registerActivity.class);
+        Intent intent = new Intent(DocLoginActivity.this, DocRegisterActivity.class);
         startActivity(intent);
     }
 

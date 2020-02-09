@@ -39,5 +39,6 @@ public interface doctor_api {
     @GET ("patient/me")
     Call<patientResponse> getUserDetails(@Header("Authorization") String token);
 
-
+    @GET ("doctor/me")
+    Call<doctorResponse> getDoctorDetails(@Header("Authorization") String token);
 }

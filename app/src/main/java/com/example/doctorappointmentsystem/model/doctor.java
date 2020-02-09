@@ -3,21 +3,25 @@ package com.example.doctorappointmentsystem.model;
 public class doctor {
     private String username;
     private String password;
-    private String firstname;
-    private String lastname;
+    private String firstName;
+
+
+    private String qualification;
+    private String lastName;
     private String address;
     private String email;
     private String profileImage;
 
-    public doctor(String username, String email,String password, String firstname, String lastname, String address, String profileImage)
+    public doctor(String username, String email,String password, String firstName, String qualification, String lastName, String address, String profileImage)
     {
         this.email=email;
         this.username = username;
-        this.firstname= firstname;
+        this.firstName= firstName;
         this.password=password;
-        this.lastname=lastname;
+        this.lastName=lastName;
         this.address=address;
         this.profileImage = profileImage;
+        this.qualification= qualification;
 
     }
     public doctor(String username, String password){
@@ -44,19 +48,19 @@ public class doctor {
     }
 
     public String getFirstname() {
-        return firstname;
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstname(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastname() {
-        return lastname;
+        return lastName;
     }
 
     public void setLastname(String lastname) {
-        this.lastname = lastname;
+        this.lastName = lastName;
     }
 
     public String getAddress() {
@@ -73,6 +77,14 @@ public class doctor {
     public void setEmail(String email) {
         this.email = email;
     }
+    public String getQualification() {
+        return qualification;
+    }
+
+    public void setQualification(String qualification) {
+        this.qualification = qualification;
+    }
+
 
     public String getProfileImage() {
         return profileImage;

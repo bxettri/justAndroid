@@ -2,8 +2,6 @@ package com.example.doctorappointmentsystem.serverResponse;
 
 public class doctorResponse {
     private String username;
-
-
     private String firstName;
     private String lastName;
     private String token;

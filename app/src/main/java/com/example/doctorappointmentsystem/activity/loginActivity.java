@@ -67,8 +67,7 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
             loginCall.enqueue(new Callback<patientResponse>() {
                 @Override
                 public void onResponse(Call<patientResponse> call, Response<patientResponse> response) {
-                    System.out.println("The Error is:"+response);
-                    System.out.println("The body is :" + response.body().getToken());
+
                     if(!response.isSuccessful()){
                         Toast.makeText(loginActivity.this, "Login Error", Toast.LENGTH_SHORT).show();
                         return;
@@ -80,7 +79,7 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
 
                 @Override
                 public void onFailure(Call<patientResponse> call, Throwable t) {
-                    Toast.makeText(loginActivity.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(loginActivity.this, "Username and password didn't match" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
 

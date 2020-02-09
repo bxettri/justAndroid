@@ -38,7 +38,7 @@ import retrofit2.Response;
 
 public class DocRegisterActivity extends AppCompatActivity {
     private static final int MY_PERMISSIONS = 100;
-    EditText username, password, firstName, lastName, address, email;
+    EditText username, password, firstName, lastName, address, email, qualification;
     Button btnRegister, btnChoosePic;
     String imagePath;
     private String imageName = "";
@@ -57,6 +57,7 @@ public class DocRegisterActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         firstName = findViewById(R.id.firstName);
         lastName = findViewById(R.id.lastName);
+        qualification = findViewById(R.id.qualification);
         password = findViewById(R.id.password);
         address = findViewById(R.id.address);
         imageView = findViewById(R.id.imageView);
@@ -137,10 +138,10 @@ public class DocRegisterActivity extends AppCompatActivity {
 
     private void saveImageDb(){
         System.out.println("The Image Name is: " +imageName);
-        doctor doctorSignup = new doctor(username.getText().toString(), email.getText().toString(), password.getText().toString(), firstName.getText().toString(), lastName.getText().toString(), address.getText().toString(), imageName);
+        doctor doctorSignup = new doctor(username.getText().toString(), email.getText().toString(), qualification.getText().toString(), password.getText().toString(), firstName.getText().toString(), lastName.getText().toString(), address.getText().toString(), imageName);
         doctor_api registerApi = url.getInstance().create(doctor_api.class);
         Call<doctorResponse> registerCall = registerApi.signup(doctorSignup);
-
+        System.out.println("the response is " + firstName.getText().toString() + "  " + lastName.getText().toString() + "  " + email.getText().toString());
         registerCall.enqueue(new Callback<doctorResponse>() {
             @Override
             public void onResponse(Call<doctorResponse> call, Response<doctorResponse> response) {

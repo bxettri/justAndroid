@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 String imgPath = url.imagePath +  response.body().getProfileImage();
                 System.out.println("The imageName is: " + response.body().getProfileImage());
                 Picasso.get().load(imgPath).into(profilePic);
-                fullName.setText(response.body().getFirstName()+response.body().getLastName());
+                fullName.setText(response.body().getFirstName() +" "+response.body().getLastName());
                 email.setText(response.body().getEmail());
             }
 

@@ -11,4 +11,7 @@ import retrofit2.http.Header;
 public interface category_api {
     @GET("/speciality")
     Call<List<category>> getAllCategories(@Header("Authorization") String token);
+
+    @GET("/speciality")
+        Call<List<category>> getAllCategorieName();
 }

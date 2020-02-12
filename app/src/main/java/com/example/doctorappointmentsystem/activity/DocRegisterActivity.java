@@ -14,13 +14,17 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.doctorappointmentsystem.R;
+import com.example.doctorappointmentsystem.api.category_api;
 import com.example.doctorappointmentsystem.api.doctor_api;
+import com.example.doctorappointmentsystem.model.category;
 import com.example.doctorappointmentsystem.model.doctor;
 import com.example.doctorappointmentsystem.serverResponse.doctorResponse;
 import com.example.doctorappointmentsystem.serverResponse.picResponse;
@@ -28,6 +32,8 @@ import com.example.doctorappointmentsystem.url.url;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -43,6 +49,11 @@ public class DocRegisterActivity extends AppCompatActivity {
     String imagePath;
     private String imageName = "";
     ImageView imageView;
+
+    List<category> categoryList;
+    //For spinner
+    Spinner spinner;
+    ArrayList<String> list = new ArrayList<>();
 
 
     @Override
@@ -61,8 +72,12 @@ public class DocRegisterActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         address = findViewById(R.id.address);
         imageView = findViewById(R.id.imageView);
+        spinner = findViewById(R.id.spinner);
+
         btnChoosePic = findViewById(R.id.btnSelectPic);
         btnRegister = findViewById(R.id.btnRegister);
+        setSpinner();
+
 
         btnChoosePic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +96,8 @@ public class DocRegisterActivity extends AppCompatActivity {
 
 
     }
+
+
 
     private void choosePic(){
         Intent selectPic = new Intent(Intent.ACTION_PICK);
@@ -159,5 +176,38 @@ public class DocRegisterActivity extends AppCompatActivity {
             }
 
         });
+    }
+
+    public void setSpinner(){
+
+        category_api category_api = url.getInstance().create(category_api.class);
+        Call<List<category>> categoryCall = category_api.getAllCategorieName();
+
+        categoryCall.enqueue(new Callback<List<category>>() {
+            @Override
+            public void onResponse(Call<List<category>> call, Response<List<category>> response) {
+                if(!response.isSuccessful()){
+                    Toast.makeText(DocRegisterActivity.this, "error:"+response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                categoryList = response.body();
+
+                for(category category: categoryList) {
+                    list.add(category.getCategoryName().toString());
+                }
+                spinnerSet();
+            }
+
+            @Override
+            public void onFailure(Call<List<category>> call, Throwable t) {
+                Toast.makeText(DocRegisterActivity.this, "error:"+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void spinnerSet(){
+        ArrayAdapter listAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, list);
+        listAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(listAdapter);
     }
 }

@@ -39,7 +39,7 @@ public class DoctorAdapter extends  RecyclerView.Adapter<DoctorAdapter.DocterVie
     @Override
     public void onBindViewHolder(@NonNull DocterViewHolder holder, int position) {
         doctor doc = doctorList.get(position);
-        holder.txtdoctername.setText(doc.getFirstname());
+        holder.txtdoctername.setText(doc.getFirstName());
 
        holder.txtdoctername.setOnClickListener(new View.OnClickListener() {
            @Override

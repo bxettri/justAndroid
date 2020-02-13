@@ -4,36 +4,47 @@ public class doctor {
     private String username;
     private String password;
     private String firstName;
-
-
     private String qualification;
     private String lastName;
     private String address;
     private String email;
+    private String categoryName;
     private String profileImage;
 
-    public doctor(String username, String email,String password, String firstName, String qualification, String lastName, String address, String profileImage)
-    {
-        this.email=email;
+//    public doctor(String username, String email,String password, String firstName, String qualification, String lastName, String address, String profileImage)
+//    {
+//        this.email=email;
+//        this.username = username;
+//        this.firstName= firstName;
+//        this.password=password;
+//        this.lastName=lastName;
+//        this.address=address;
+//        this.profileImage = profileImage;
+//        this.qualification= qualification;
+//
+//    }
+
+
+    public doctor(String username, String password) {
         this.username = username;
-        this.firstName= firstName;
-        this.password=password;
-        this.lastName=lastName;
-        this.address=address;
+        this.password = password;
+    }
+
+    public doctor(String username, String password, String firstName, String qualification, String lastName, String address, String email, String categoryName, String profileImage) {
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.qualification = qualification;
+        this.lastName = lastName;
+        this.address = address;
+        this.email = email;
+        this.categoryName = categoryName;
         this.profileImage = profileImage;
-        this.qualification= qualification;
-
-    }
-    public doctor(String username, String password){
-
-        this.username= username;
-        this.password=password;
     }
 
-
-
-
-    public String getUsername() {return username; }
+    public String getUsername() {
+        return username;
+    }
 
     public void setUsername(String username) {
         this.username = username;
@@ -47,19 +58,27 @@ public class doctor {
         this.password = password;
     }
 
-    public String getFirstname() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstname(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public String getLastname() {
+    public String getQualification() {
+        return qualification;
+    }
+
+    public void setQualification(String qualification) {
+        this.qualification = qualification;
+    }
+
+    public String getLastName() {
         return lastName;
     }
 
-    public void setLastname(String lastname) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -70,6 +89,7 @@ public class doctor {
     public void setAddress(String address) {
         this.address = address;
     }
+
     public String getEmail() {
         return email;
     }
@@ -77,14 +97,14 @@ public class doctor {
     public void setEmail(String email) {
         this.email = email;
     }
-    public String getQualification() {
-        return qualification;
+
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setQualification(String qualification) {
-        this.qualification = qualification;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
-
 
     public String getProfileImage() {
         return profileImage;

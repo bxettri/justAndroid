@@ -14,4 +14,7 @@ public interface category_api {
 
     @GET("/speciality")
         Call<List<category>> getAllCategorieName();
+
+    @GET("/speciality/getSpeciality")
+    Call<List<category>> getAllinfo();
 }

@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,6 +55,7 @@ public class DocRegisterActivity extends AppCompatActivity {
     //For spinner
     Spinner spinner;
     ArrayList<String> list = new ArrayList<>();
+    String SelectedSpecialization = "";
 
 
     @Override
@@ -93,7 +95,6 @@ public class DocRegisterActivity extends AppCompatActivity {
                 saveImageDb();
             }
         });
-
 
     }
 
@@ -154,8 +155,18 @@ public class DocRegisterActivity extends AppCompatActivity {
 
 
     private void saveImageDb(){
-        System.out.println("The Image Name is: " +imageName);
-        doctor doctorSignup = new doctor(username.getText().toString(), email.getText().toString(), qualification.getText().toString(), password.getText().toString(), firstName.getText().toString(), lastName.getText().toString(), address.getText().toString(), imageName);
+        System.out.println("The Image Name is: " +spinner.getSelectedItem().toString());
+        doctor doctorSignup = new doctor(
+                username.getText().toString(),
+                password.getText().toString(),
+                firstName.getText().toString(),
+                qualification.getText().toString(),
+                lastName.getText().toString(),
+                address.getText().toString(),
+                email.getText().toString(),
+                SelectedSpecialization,
+                imageName
+        );
         doctor_api registerApi = url.getInstance().create(doctor_api.class);
         Call<doctorResponse> registerCall = registerApi.signup(doctorSignup);
         System.out.println("the response is " + firstName.getText().toString() + "  " + lastName.getText().toString() + "  " + email.getText().toString());
@@ -209,5 +220,16 @@ public class DocRegisterActivity extends AppCompatActivity {
         ArrayAdapter listAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, list);
         listAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(listAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                SelectedSpecialization = list.get(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 }

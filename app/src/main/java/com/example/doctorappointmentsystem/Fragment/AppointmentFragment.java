@@ -31,7 +31,7 @@ import retrofit2.Response;
 public class AppointmentFragment extends Fragment {
 
     RecyclerView rv;
-    private LinearLayoutManager layoutManager;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -50,8 +50,8 @@ public class AppointmentFragment extends Fragment {
                     }
                     else {
                         List<category> categoryList = response.body();
-                        layoutManager = new LinearLayoutManager(getContext());
-                        rv.setLayoutManager(layoutManager);
+
+                        rv.setLayoutManager(new GridLayoutManager(getContext(),2));
                         CategoryAdapter catAdapter = new CategoryAdapter(getContext(), categoryList);
 
                         rv.setAdapter(catAdapter);

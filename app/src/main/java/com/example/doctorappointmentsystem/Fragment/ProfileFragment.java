@@ -1,5 +1,6 @@
 package com.example.doctorappointmentsystem.Fragment;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,10 @@ import androidx.fragment.app.Fragment;
 import com.example.doctorappointmentsystem.R;
 
 public class ProfileFragment extends Fragment {
+
+    Dialog editInfo, editPass;
+
+
 
     @Nullable
     @Override

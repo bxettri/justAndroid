@@ -54,7 +54,6 @@ public class AppointmentFragment extends Fragment {
                         layoutManager = new LinearLayoutManager(getContext());
                         rv.setLayoutManager(layoutManager);
                         CategoryAdapter catAdapter = new CategoryAdapter(getContext(), categoryList);
-
                         rv.setAdapter(catAdapter);
                     }
                 }

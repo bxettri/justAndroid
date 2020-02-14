@@ -2,6 +2,8 @@ package com.example.doctorappointmentsystem.model;
 
 public class category {
 
+    private String _id;
+
     private String categoryImage;
     private String categoryName;
 
@@ -9,6 +11,7 @@ public class category {
         this.categoryImage = categoryImage;
         this.categoryName = categoryName;
     }
+
 
     public String getCategoryImage() {
         return categoryImage;
@@ -25,4 +28,12 @@ public class category {
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
     }
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
+
 }

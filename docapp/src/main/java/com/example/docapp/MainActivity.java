@@ -2,6 +2,7 @@ package com.example.docapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.wearable.activity.WearableActivity;
 import android.view.View;
 import android.widget.Button;
@@ -11,17 +12,20 @@ import android.widget.Toast;
 
 import com.example.docapp.api.doctor_api;
 import com.example.docapp.model.patients;
+import com.example.docapp.serverResponse.patientResponse;
 import com.example.docapp.url.url;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
 public class MainActivity extends WearableActivity {
 
-    private TextView mTextView;
+
     private EditText username,password;
     private Button btnLogin;
+    Vibrator vibrator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,29 +36,34 @@ public class MainActivity extends WearableActivity {
         btnLogin = findViewById(R.id.btnLogin);
         username=findViewById(R.id.username);
         password=findViewById(R.id.password);
-        mTextView = (TextView) findViewById(R.id.text);
-
-
-        // Enables Always-on
-        setAmbientEnabled();
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btnLogin:
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 login();
-                break;
-            case R.id.btnRegister:
-                openRegister();
-                break;
-            case R.id.btnDoctor:
-                openDoctor();
-                break;
-            default:
-                break;
-        }
+            }
+        });
+
+
+
+
     }
+
+
+
+
+
+
+//    @Override
+//    public void onClick(View v) {
+//        switch (v.getId()){
+//            case R.id.btnLogin:
+//                login();
+//                break;
+//
+//            default:
+//                break;
+//        }
+//    }
 
     private void login() {
         if(username.getText().toString()!=null && password.getText().toString()!=null){
@@ -67,7 +76,7 @@ public class MainActivity extends WearableActivity {
                 public void onResponse(Call<patientResponse> call, Response<patientResponse> response) {
 
                     if(!response.isSuccessful()){
-                        Toast.makeText(loginActivity.this, "Username and password didn't match", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Username and password didn't match", Toast.LENGTH_SHORT).show();
                         vibrator.vibrate(50);
                         return;
                     }
@@ -78,7 +87,7 @@ public class MainActivity extends WearableActivity {
 
                 @Override
                 public void onFailure(Call<patientResponse> call, Throwable t) {
-                    Toast.makeText(loginActivity.this, "Username and password didn't match" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Username and password didn't match" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -90,19 +99,10 @@ public class MainActivity extends WearableActivity {
     }
 
     public void openDashboard(){
-        Intent openDashboard = new Intent(loginActivity.this, MainActivity.class);
+        Intent openDashboard = new Intent(MainActivity.this, dashboard.class);
         startActivity(openDashboard);
     }
 
 
 
-    public void openRegister(){
-        Intent intent = new Intent(loginActivity.this, registerActivity.class);
-        startActivity(intent);
-    }
-
-    public void openDoctor(){
-        Intent intent = new Intent(loginActivity.this, DocLoginActivity.class);
-        startActivity(intent);
-    }
 }

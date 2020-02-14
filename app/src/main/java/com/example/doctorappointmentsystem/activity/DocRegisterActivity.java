@@ -55,7 +55,7 @@ public class DocRegisterActivity extends AppCompatActivity {
     //For spinner
     Spinner spinner;
     ArrayList<String> list = new ArrayList<>();
-    String SelectedSpecialization = "";
+    String categoryName = "";
 
 
     @Override
@@ -91,7 +91,7 @@ public class DocRegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadFile();
+                //uploadFile();
                 saveImageDb();
             }
         });
@@ -164,12 +164,14 @@ public class DocRegisterActivity extends AppCompatActivity {
                 lastName.getText().toString(),
                 address.getText().toString(),
                 email.getText().toString(),
-                SelectedSpecialization,
+                categoryName,
                 imageName
         );
+        Toast.makeText(DocRegisterActivity.this, "the values are: "+categoryName, Toast.LENGTH_SHORT).show();
+        System.out.println("the spinner value is: "+categoryName);
         doctor_api registerApi = url.getInstance().create(doctor_api.class);
         Call<doctorResponse> registerCall = registerApi.signup(doctorSignup);
-        System.out.println("the response is " + firstName.getText().toString() + "  " + lastName.getText().toString() + "  " + email.getText().toString());
+        //System.out.println("the response is " + firstName.getText().toString() + "  " + lastName.getText().toString() + "  " + email.getText().toString());
         registerCall.enqueue(new Callback<doctorResponse>() {
             @Override
             public void onResponse(Call<doctorResponse> call, Response<doctorResponse> response) {
@@ -223,7 +225,7 @@ public class DocRegisterActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                SelectedSpecialization = list.get(position);
+                categoryName = list.get(position);
             }
 
             @Override

@@ -18,6 +18,7 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface doctor_api {
     @Multipart
@@ -41,4 +42,14 @@ public interface doctor_api {
 
     @GET ("doctor/me")
     Call<doctorResponse> getDoctorDetails(@Header("Authorization") String token);
+
+
+    @GET("/patient/AllDoctor")
+    Call<List<doctor>> getAllDoctor(@Header("Authorization") String token);
+
+    @GET("/patient/getdoctorybycategory")
+    Call<List<doctor>> getDoctorByCategory(
+            @Header("Authorization") String token,
+            @Query("categoryName") String catname
+    );
 }

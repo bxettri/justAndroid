@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.doctorappointmentsystem.R;
 import com.example.doctorappointmentsystem.activity.BookingActivity;
 import com.example.doctorappointmentsystem.model.category;
-import com.example.doctorappointmentsystem.model.doctor;
 import com.example.doctorappointmentsystem.url.url;
 import com.squareup.picasso.Picasso;
 
@@ -41,7 +40,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     @Override
     public void onBindViewHolder(@NonNull CategoryAdapter.CategoryViewHolder holder, int position) {
-        category cat = categoryList.get(position);
+        final category cat = categoryList.get(position);
         holder.catName.setText(cat.getCategoryName());
         String imgPath = url.imagePath + cat.getCategoryImage();
         Picasso.get().load(imgPath).into(holder.catImage);
@@ -49,6 +48,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(mcontext, BookingActivity.class);
+                i.putExtra("category",cat.getCategoryName());
                 mcontext.startActivity(i);
             }
         });

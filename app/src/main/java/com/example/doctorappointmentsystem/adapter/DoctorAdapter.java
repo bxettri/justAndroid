@@ -12,7 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doctorappointmentsystem.R;
 import com.example.doctorappointmentsystem.activity.BookingActivity;
+import com.example.doctorappointmentsystem.activity.DoctorInfo;
 import com.example.doctorappointmentsystem.model.doctor;
+import com.example.doctorappointmentsystem.url.url;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -31,20 +34,22 @@ public class DoctorAdapter extends  RecyclerView.Adapter<DoctorAdapter.DocterVie
 
     @NonNull
     @Override
-    public DocterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(mcontext).inflate(R.layout.docterlist,parent,false);
-        return new DocterViewHolder(v);
+    public DoctorAdapter.DocterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(mcontext).inflate(R.layout.doctors,parent,false);
+        return new DoctorAdapter.DocterViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DocterViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DoctorAdapter.DocterViewHolder holder, int position) {
         doctor doc = doctorList.get(position);
-        holder.txtdoctername.setText(doc.getFirstName());
-
-       holder.txtdoctername.setOnClickListener(new View.OnClickListener() {
+        holder.txtdoctorname.setText(doc.getFirstName());
+        holder.txtDoctorQualification.setText((doc.getQualification()));
+        String imgPath = url.imagePath + doc.getProfileImage();
+        Picasso.get().load(imgPath).into(holder.docterImg);
+       holder.txtdoctorname.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               Intent i = new Intent(mcontext,BookingActivity.class);
+               Intent i = new Intent(mcontext, DoctorInfo.class);
                mcontext.startActivity(i);
            }
        });
@@ -56,17 +61,20 @@ public class DoctorAdapter extends  RecyclerView.Adapter<DoctorAdapter.DocterVie
     }
 
     public class DocterViewHolder extends RecyclerView.ViewHolder{
-        CircleImageView docterimg;
-        TextView txtdoctername;
+        CircleImageView docterImg;
+        TextView txtdoctorname, txtDoctorQualification;
+
 
         public DocterViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            docterimg = itemView.findViewById(R.id.imgProfile);
-            txtdoctername = itemView.findViewById(R.id.docterfullName);
+            docterImg = itemView.findViewById(R.id.doctorImage);
+            txtdoctorname = itemView.findViewById(R.id.doctorName);
+            txtDoctorQualification= itemView.findViewById(R.id.doctorQualification);
 
 
         }
     }
+
 
 }

@@ -30,6 +30,12 @@ public class doctor {
         this.password = password;
     }
 
+    public doctor(String firstName, String qualification, String profileImage){
+        this.firstName = firstName;
+        this.qualification= qualification;
+        this.profileImage= profileImage;
+    }
+
     public doctor(String username, String password, String firstName, String qualification, String lastName, String address, String email, String categoryName, String profileImage) {
         this.username = username;
         this.password = password;

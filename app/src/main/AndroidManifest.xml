@@ -18,6 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activity.finalBooking"></activity>
+        <activity android:name=".activity.DoctorInfo" />
         <activity android:name=".activity.adminMainActivity" />
         <activity android:name=".activity.docMainActivity" />
         <activity android:name=".activity.BookingActivity" />

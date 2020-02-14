@@ -37,6 +37,7 @@ public class AppointmentFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_appointment, container, false);
 
+
         rv = v.findViewById(R.id.rvCategories);
         try {
             category_api getCategories = url.getInstance().create(category_api.class);

@@ -43,7 +43,7 @@
                 android:title="Send" />
 
             <item
-                android:id="@+id/btnLogout"
+                android:id="@+id/nav_logout"
                 android:icon="@drawable/ic_logout"
                 android:title="Logout" />
 

@@ -12,6 +12,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -27,6 +29,7 @@ import com.example.doctorappointmentsystem.model.patients;
 import com.example.doctorappointmentsystem.serverResponse.patientResponse;
 import com.example.doctorappointmentsystem.serverResponse.picResponse;
 import com.example.doctorappointmentsystem.url.url;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
@@ -47,6 +50,13 @@ public class registerActivity extends AppCompatActivity {
     private String imageName = "";
     ImageView imageView;
 
+
+    private ShakeDetector mShakeDetector;
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +75,7 @@ public class registerActivity extends AppCompatActivity {
         btnChoosePic = findViewById(R.id.btnSelectPic);
         btnRegister = findViewById(R.id.btnRegister);
 
+
         btnChoosePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +91,39 @@ public class registerActivity extends AppCompatActivity {
             }
         });
 
+
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mShakeDetector = new ShakeDetector(new ShakeDetector.OnShakeListener() {
+            @Override
+            public void onShake() {
+
+                username.setText("");
+                email.setText("");
+                firstName.setText("");
+                lastName.setText("");
+                password.setText("");
+                address.setText("");
+                Picasso.get().load(R.drawable.patient).into(imageView);
+            }
+        });
+
+
+
+    }
+
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mSensorManager.registerListener(mShakeDetector, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
+    }
+
+    @Override
+    protected void onPause() {
+        mSensorManager.unregisterListener(mShakeDetector);
+        super.onPause();
     }
 
     private void choosePic(){

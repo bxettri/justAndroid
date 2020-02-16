@@ -25,7 +25,7 @@ public class MainActivity extends WearableActivity {
 
     private EditText username,password;
     private Button btnLogin;
-    Vibrator vibrator;
+//    Vibrator vibrator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,17 +53,6 @@ public class MainActivity extends WearableActivity {
 
 
 
-//    @Override
-//    public void onClick(View v) {
-//        switch (v.getId()){
-//            case R.id.btnLogin:
-//                login();
-//                break;
-//
-//            default:
-//                break;
-//        }
-//    }
 
     private void login() {
         if(username.getText().toString()!=null && password.getText().toString()!=null){
@@ -77,7 +66,7 @@ public class MainActivity extends WearableActivity {
 
                     if(!response.isSuccessful()){
                         Toast.makeText(MainActivity.this, "Username and password didn't match", Toast.LENGTH_SHORT).show();
-                        vibrator.vibrate(50);
+                      //  vibrator.vibrate(50);
                         return;
                     }
 

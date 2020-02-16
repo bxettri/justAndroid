@@ -12,11 +12,10 @@
         android:text="Welcome"
         />
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/navProfilePic"
         android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@mipmap/ic_launcher_round"/>
+        android:layout_height="80dp" />
 
     <TextView
         android:id="@+id/fullName"

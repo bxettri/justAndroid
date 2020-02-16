@@ -3,6 +3,7 @@ package com.example.doctorappointmentsystem.api;
 import com.example.doctorappointmentsystem.model.doctor;
 import com.example.doctorappointmentsystem.model.patients;
 import com.example.doctorappointmentsystem.serverResponse.doctorResponse;
+import com.example.doctorappointmentsystem.serverResponse.passwordResponse;
 import com.example.doctorappointmentsystem.serverResponse.patientResponse;
 import com.example.doctorappointmentsystem.serverResponse.picResponse;
 
@@ -16,6 +17,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -52,4 +54,10 @@ public interface doctor_api {
             @Header("Authorization") String token,
             @Query("categoryName") String catname
     );
+
+    @POST("patient/verifyPass")
+    Call<passwordResponse> checkPassword(@Header("Authorization") String token, @Body passwordResponse password);
+
+    @PUT("patient/updatePass")
+    Call<passwordResponse> changePassword (@Header("Authorization") String token, @Body passwordResponse password);
 }

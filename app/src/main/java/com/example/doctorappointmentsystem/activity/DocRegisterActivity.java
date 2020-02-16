@@ -7,9 +7,12 @@ import androidx.core.content.ContextCompat;
 import androidx.loader.content.CursorLoader;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -30,6 +33,7 @@ import com.example.doctorappointmentsystem.model.doctor;
 import com.example.doctorappointmentsystem.serverResponse.doctorResponse;
 import com.example.doctorappointmentsystem.serverResponse.picResponse;
 import com.example.doctorappointmentsystem.url.url;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
@@ -50,6 +54,10 @@ public class DocRegisterActivity extends AppCompatActivity {
     String imagePath;
     private String imageName = "";
     ImageView imageView;
+
+    private ShakeDetector mShakeDetector;
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
 
     List<category> categoryList;
     //For spinner
@@ -91,11 +99,41 @@ public class DocRegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //uploadFile();
+                uploadFile();
                 saveImageDb();
             }
         });
 
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mShakeDetector = new ShakeDetector(new ShakeDetector.OnShakeListener() {
+            @Override
+            public void onShake() {
+
+                username.setText("");
+                email.setText("");
+                firstName.setText("");
+                lastName.setText("");
+                password.setText("");
+                address.setText("");
+                qualification.setText("");
+                
+                Picasso.get().load(R.drawable.doc).into(imageView);
+            }
+        });
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mSensorManager.registerListener(mShakeDetector, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
+    }
+
+    @Override
+    protected void onPause() {
+        mSensorManager.unregisterListener(mShakeDetector);
+        super.onPause();
     }
 
 

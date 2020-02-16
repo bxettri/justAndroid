@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.doctorappointmentsystem.R;
 import com.example.doctorappointmentsystem.activity.BookingActivity;
 import com.example.doctorappointmentsystem.activity.DoctorInfo;
+import com.example.doctorappointmentsystem.activity.finalBooking;
 import com.example.doctorappointmentsystem.model.doctor;
 import com.example.doctorappointmentsystem.url.url;
 import com.squareup.picasso.Picasso;
@@ -46,10 +48,12 @@ public class DoctorAdapter extends  RecyclerView.Adapter<DoctorAdapter.DocterVie
         holder.txtDoctorQualification.setText((doc.getQualification()));
         String imgPath = url.imagePath + doc.getProfileImage();
         Picasso.get().load(imgPath).into(holder.docterImg);
-       holder.txtdoctorname.setOnClickListener(new View.OnClickListener() {
+        final String id = doc.get_id();
+       holder.doctorProf.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               Intent i = new Intent(mcontext, DoctorInfo.class);
+               Intent i = new Intent(mcontext, finalBooking.class);
+               i.putExtra("docId", id);
                mcontext.startActivity(i);
            }
        });
@@ -63,11 +67,13 @@ public class DoctorAdapter extends  RecyclerView.Adapter<DoctorAdapter.DocterVie
     public class DocterViewHolder extends RecyclerView.ViewHolder{
         CircleImageView docterImg;
         TextView txtdoctorname, txtDoctorQualification;
+        LinearLayout doctorProf;
 
 
         public DocterViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            doctorProf = itemView.findViewById(R.id.doctorProf);
             docterImg = itemView.findViewById(R.id.doctorImage);
             txtdoctorname = itemView.findViewById(R.id.doctorName);
             txtDoctorQualification= itemView.findViewById(R.id.doctorQualification);

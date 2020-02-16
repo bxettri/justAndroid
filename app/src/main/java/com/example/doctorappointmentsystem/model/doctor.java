@@ -1,6 +1,8 @@
 package com.example.doctorappointmentsystem.model;
 
 public class doctor {
+
+    private String _id;
     private String username;
     private String password;
     private String firstName;
@@ -46,6 +48,15 @@ public class doctor {
         this.email = email;
         this.categoryName = categoryName;
         this.profileImage = profileImage;
+    }
+
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getUsername() {

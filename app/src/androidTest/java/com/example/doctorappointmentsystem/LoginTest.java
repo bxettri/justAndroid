@@ -5,6 +5,7 @@ import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
 
 import com.example.doctorappointmentsystem.activity.MainActivity;
+import com.example.doctorappointmentsystem.activity.loginActivity;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -21,8 +22,8 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 @LargeTest
 public class LoginTest {
     @Rule
-    public ActivityTestRule<MainActivity>
-            testRule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<loginActivity>
+            testRule = new ActivityTestRule<>(loginActivity.class);
 
     @Test
     public void login() {

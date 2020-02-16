@@ -24,7 +24,7 @@ public class ExampleUnitTest {
 
     public void login() {
          LoginBLL loginBLL = new LoginBLL();
-        boolean result = loginBLL.login("xettri", "12345");
+        boolean result = loginBLL.login("xettri", "1234");
         assertEquals(true, result);
     }
 

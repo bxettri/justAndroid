@@ -3,6 +3,10 @@ package com.example.doctorappointmentsystem.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
@@ -22,6 +26,7 @@ import retrofit2.Response;
 
 public class loginActivity extends AppCompatActivity implements View.OnClickListener{
 
+    public SensorManager sensorManager;
 
     Button btnLogin, btnRegister, btnDoctor;
     EditText username, password;
@@ -41,6 +46,8 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
         btnDoctor.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
         btnLogin.setOnClickListener(this);
+
+        lightsensor();
 
     }
 
@@ -109,5 +116,27 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
     public void openDoctor(){
         Intent intent = new Intent(loginActivity.this, DocLoginActivity.class);
         startActivity(intent);
+    }
+
+
+
+    private void lightsensor() {
+        sensorManager=(SensorManager)getSystemService(SENSOR_SERVICE);
+        Sensor sensor= sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+        SensorEventListener sensorEventListener= new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent event) {
+                if( event.sensor.getType() == Sensor.TYPE_LIGHT) {
+                    Toast.makeText(getApplicationContext(), "On SensorChanged" + event.values[0], Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+            }
+        };
+        sensorManager.registerListener(sensorEventListener,sensor,SensorManager.SENSOR_DELAY_FASTEST);
+
     }
 }

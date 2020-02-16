@@ -14,6 +14,10 @@ public class appointmentModel {
         this.Query = Query;
     }
 
+    public appointmentModel(String _id){
+        this._id = _id;
+    }
+
     public String get_id() {
         return _id;
     }

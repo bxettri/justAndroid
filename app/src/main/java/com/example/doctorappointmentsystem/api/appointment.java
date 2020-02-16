@@ -19,6 +19,6 @@ public interface appointment {
     @GET("/appointment/myAppointment")
     Call<List<appointmentModel>> getAppointment(@Header("Authorization") String token);
 
-    @DELETE("appointment/{id}/deleteAppointment")
-    Call<appointment>deleteAppont(@Header("Authorization") String token, @Path("id") String id);
+    @DELETE("/appointment/{id}/deleteAppointment")
+    Call<appointmentModel>deleteAppoint(@Header("Authorization") String token, @Path("id") String id);
 }

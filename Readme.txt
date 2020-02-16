@@ -22,9 +22,13 @@ Title: Doctor appointment system
 4)
   
  Android project Youtube video link
+ Running apps: https://www.youtube.com/watch?v=RBC3_JzvqGc
+ Running sensor: https://www.youtube.com/watch?v=Lq3JuqKbFO0
 
 
 5) API link
+
+https://github.com/softwarica-github/t2-backend-api-bxettri
 
 
 6) REST client:

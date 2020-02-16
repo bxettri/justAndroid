@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -51,7 +52,7 @@ public class AppointmentFragment extends Fragment {
                     }
                     else {
                         List<category> categoryList = response.body();
-                        layoutManager = new LinearLayoutManager(getContext());
+                        layoutManager = new GridLayoutManager(getContext(),2);
                         rv.setLayoutManager(layoutManager);
                         CategoryAdapter catAdapter = new CategoryAdapter(getContext(), categoryList);
                         rv.setAdapter(catAdapter);

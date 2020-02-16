@@ -38,10 +38,11 @@ public class AppointmentAdapater extends  RecyclerView.Adapter<AppointmentAdapat
 
         holder.txtdate.setText(apoint.getAppointmentDate());
         holder.txttime.setText(apoint.getAppointmentTime());
-
+        holder.txtquery.setText(apoint.getQuery());
 
 
     }
+
 
     @Override
     public int getItemCount() {
@@ -49,12 +50,14 @@ public class AppointmentAdapater extends  RecyclerView.Adapter<AppointmentAdapat
     }
 
     public class AppointmentViewHolder extends RecyclerView.ViewHolder{
-        TextView txtdate,txttime;
+        TextView txtdate,txttime, txtquery, txt4;
 
         public AppointmentViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtdate = itemView.findViewById(R.id.txtdate);
-            txttime  = itemView.findViewById(R.id.txttime);
+           txtdate = itemView.findViewById(R.id.tvDoctor);
+           txttime  = itemView.findViewById(R.id.tvTime);
+            txtquery  = itemView.findViewById(R.id.tvQuery);
+            txt4 = itemView.findViewById(R.id.btnCancel);
 
         }
     }

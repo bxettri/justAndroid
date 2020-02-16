@@ -29,36 +29,32 @@ import retrofit2.Response;
 import retrofit2.http.Url;
 
 public class HomeFragment extends Fragment {
-    Context context;
-
+//    Context context;
+//
     RecyclerView recyclerView;
 
-    List<appointmentModel> lstappoint;
-
+//    List<appointmentModel> lstappoint;
+//
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        context = getContext();
+//        context = getContext();
 
         recyclerView  = view.findViewById(R.id.appointment);
 
-           loaduser();
+           //loaduser();
 
            getappoiment();
-
-
-
-
 
 
         return view;
     }
 
-    private void loaduser() {
-        doctor_api  doc = url.getInstance().create(doctor_api.class);
-      //  Call<docterresponse> doctorCall = doc.getAllDoctor()
-    }
+//    private void loaduser() {
+//        doctor_api  doc = url.getInstance().create(doctor_api.class);
+//      //  Call<docterresponse> doctorCall = doc.getAllDoctor()
+//    }
 
     private void getappoiment() {
 
@@ -71,10 +67,10 @@ public class HomeFragment extends Fragment {
                     Toast.makeText(getContext(),"Error",Toast.LENGTH_LONG).show();
                     return;
                 }
+                   List<appointmentModel> list = response.body();
 
-                lstappoint = response.body();
 
-                AppointmentAdapater appointmentAdapater = new AppointmentAdapater(getContext(),lstappoint);
+                AppointmentAdapater appointmentAdapater = new AppointmentAdapater(getContext(),list);
                 recyclerView.setAdapter(appointmentAdapater);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

@@ -96,6 +96,7 @@ public class finalBooking extends AppCompatActivity {
                         if(!response.isSuccessful()){
                             Toast.makeText(finalBooking.this, "Couldn't get appointment", Toast.LENGTH_SHORT).show();
                         }
+                        Toast.makeText(finalBooking.this, "Your appointment has been booked", Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -137,9 +138,9 @@ public class finalBooking extends AppCompatActivity {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 Log.e("Log", "selected time----" + hourOfDay + ":" + minute);
-                String strTime = 10 + ":"+ minute + ":00";
+                String strTime = hourOfDay + ":"+ minute + ":00";
                 updateTime(hourOfDay, minute);
-                time = strTime;
+                time=strTime;
             }
         }, intHour, intMinute, false);
         timePickerDialog.show();

@@ -3,6 +3,7 @@ package com.example.doctorappointmentsystem.activity;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -60,7 +61,7 @@ public class BookingActivity extends AppCompatActivity {
                         Toast.makeText(BookingActivity.this, "Couldn't get categories", Toast.LENGTH_SHORT).show();
                     } else {
                         List<doctor> doctorList = response.body();
-                        layoutManager = new LinearLayoutManager(BookingActivity.this);
+                        layoutManager = new GridLayoutManager(BookingActivity.this,2);
                         rv.setLayoutManager(layoutManager);
                         DoctorAdapter docAdapter = new DoctorAdapter(BookingActivity.this, doctorList);
 

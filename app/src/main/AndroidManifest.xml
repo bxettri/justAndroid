@@ -16,6 +16,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -25,6 +26,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -36,21 +38,19 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDchG6Q20zx-sSUL264fXWGKZMRpL294lI" />
+            android:value="@string/google_maps_key" />
 
         <activity
             android:name=".activity.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps">  </activity>
         <activity android:name=".activity.finalBooking" />
         <activity android:name=".activity.DoctorInfo" />
-        <activity android:name=".activity.adminMainActivity" />
         <activity android:name=".activity.docMainActivity" />
         <activity android:name=".activity.BookingActivity" />
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.DocRegisterActivity" />
         <activity android:name=".activity.DocLoginActivity" />
         <activity android:name=".activity.registerActivity" />
-        <activity android:name=".activity.dashboardActivity" />
         <activity
             android:name=".activity.loginActivity"
             android:theme="@style/AppTheme.NoActionBar">

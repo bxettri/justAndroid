@@ -205,8 +205,8 @@ public class DocRegisterActivity extends AppCompatActivity {
                 categoryName,
                 imageName
         );
-        Toast.makeText(DocRegisterActivity.this, "the values are: "+categoryName, Toast.LENGTH_SHORT).show();
-        System.out.println("the spinner value is: "+categoryName);
+        //Toast.makeText(DocRegisterActivity.this, "the values are: "+categoryName, Toast.LENGTH_SHORT).show();
+       // System.out.println("the spinner value is: "+categoryName);
         doctor_api registerApi = url.getInstance().create(doctor_api.class);
         Call<doctorResponse> registerCall = registerApi.signup(doctorSignup);
         //System.out.println("the response is " + firstName.getText().toString() + "  " + lastName.getText().toString() + "  " + email.getText().toString());
@@ -218,6 +218,7 @@ public class DocRegisterActivity extends AppCompatActivity {
                     return;
                 }
                 Intent signupSuccess = new Intent(DocRegisterActivity.this, DocLoginActivity.class);
+                Toast.makeText(DocRegisterActivity.this, "Signed up sucessfully", Toast.LENGTH_SHORT).show();
                 startActivity(signupSuccess);
             }
 

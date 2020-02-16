@@ -21,6 +21,28 @@ public class patients {
            this.profileImage = profileImage;
 
          }
+        public patients( String firstname, String lastname, String username, String email, String address, int update){
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.username = username;
+        this.email = email;
+        this.address = address;
+
+
+    }
+
+
+        public patients( String firstname, String lastname, String username, String email, String address, String  profileImage, int update){
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.username = username;
+        this.email = email;
+        this.address = address;
+        this.profileImage = profileImage;
+
+    }
+
+
     public patients(String username, String password){
 
         this.username= username;

@@ -1,6 +1,7 @@
 package com.example.doctorappointmentsystem.model;
 
 public class appointmentModel {
+    String _id ;
     private String DoctorId;
     private String AppointmentDate;
     private String AppointmentTime;
@@ -11,6 +12,14 @@ public class appointmentModel {
         this.AppointmentDate = AppointmentDate;
         this.AppointmentTime = AppointmentTime;
         this.Query = Query;
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getDoctorId() {

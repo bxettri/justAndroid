@@ -1,12 +1,15 @@
 package com.example.doctorappointmentsystem.serverResponse;
 
 public class patientResponse {
-    private String username;
+
+
     private String firstName;
     private String lastName;
+    private String username;
+    private String email;
     private String token;
     private  String address;
-    private String email;
+
 
     private String profileImage;
 
@@ -20,23 +23,25 @@ public class patientResponse {
     }
 
 
-    public patientResponse(String username, String firstName, String lastName, String email, String address, String  profileImage){
-        this.username = username;
+    public patientResponse( String username, String email, String firstName, String lastName, String address, int update){
         this.firstName = firstName;
         this.lastName = lastName;
+        this.username = username;
         this.email = email;
         this.address = address;
-        this.profileImage = profileImage;
-
     }
 
-    public String getUsername() {
-        return username;
-    }
+//
+public patientResponse(String username, String email, String firstname, String lastname, String address)
+{
+    this.email=email;
+    this.username = username;
+    this.firstName= firstname;
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    this.lastName=lastname;
+    this.address=address;
+
+}
 
     public String getFirstName() {
         return firstName;
@@ -54,6 +59,22 @@ public class patientResponse {
         this.lastName = lastName;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getToken() {
         return token;
     }
@@ -68,14 +89,6 @@ public class patientResponse {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getProfileImage() {

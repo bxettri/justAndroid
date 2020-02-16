@@ -42,6 +42,10 @@ public interface doctor_api {
     @GET ("patient/me")
     Call<patientResponse> getUserDetails(@Header("Authorization") String token);
 
+
+    @PUT ("patient/updateProfile")
+    Call<patientResponse> updatePatience(@Header("Authorization") String token , @Body  patientResponse user);
+
     @GET ("doctor/me")
     Call<doctorResponse> getDoctorDetails(@Header("Authorization") String token);
 

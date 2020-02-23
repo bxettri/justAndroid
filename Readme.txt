@@ -22,8 +22,8 @@ Title: Doctor appointment system
 4)
   
  Android project Youtube video link
- Running apps: https://www.youtube.com/watch?v=RBC3_JzvqGc
- Running sensor: https://www.youtube.com/watch?v=Lq3JuqKbFO0
+ Running apps: https://www.youtube.com/watch?v=rG_Zo338D3M
+ Running sensor: https://www.youtube.com/watch?v=Xl__ogCrj5k
 
 
 5) API link
